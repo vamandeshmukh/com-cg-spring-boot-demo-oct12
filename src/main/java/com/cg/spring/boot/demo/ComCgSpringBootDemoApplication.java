@@ -7,7 +7,7 @@ public class ComCgSpringBootDemoApplication {
 
 	public static void main(String[] args) {
 
-		System.out.println("Vaman");
+		System.out.println("Start");
 
 	}
 

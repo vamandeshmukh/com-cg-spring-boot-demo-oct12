@@ -27,4 +27,10 @@ public class EmployeeController {
 		return empList;
 	}
 
+//	@RequestMapping("/rrrrr")
+//	@GetMapping("/ggggg")
+//	@PostMapping("/aaaa")
+//	@PutMapping("/ppp")
+//	@DeleteMapping("/ddddd")
+
 }

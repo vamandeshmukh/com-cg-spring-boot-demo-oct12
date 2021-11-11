@@ -9,7 +9,7 @@ public class ComCgSpringBootDemoApplication {
 	public static void main(String[] args) {
 
 		System.out.println("Start");
-//		SpringApplication.run(ComCgSpringBootDemoApplication.class);
+		SpringApplication.run(ComCgSpringBootDemoApplication.class);
 		System.out.println("End");
 
 	}

@@ -6,10 +6,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Hello {
 
-	@RequestMapping("/hello")
+	// URL - http://localhost:8082/hello
+	// Endpoint, API - hello
+
+	@RequestMapping("/hello") // endpoint , API
 	public String hello() {
 		System.out.println("hello");
 		return "Hello world!";
+	}
+
+// http://localhost:8082/hi
+
+	@RequestMapping("/hi")
+	public String hi() {
+		System.out.println("hi");
+		return "Hi world!";
 	}
 
 }

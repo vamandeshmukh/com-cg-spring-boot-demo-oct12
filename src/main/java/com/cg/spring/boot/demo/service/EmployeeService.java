@@ -28,7 +28,7 @@ public class EmployeeService {
 
 	public Employee getEmployeeById(int eid) {
 		System.out.println("Service getEmployeeById");
-		return empList.stream().filter(e -> eid == e.getEid()).findAny().get();
+		return empList.stream().filter(e -> eid == e.getEid()).findAny().orElse(null);
 	}
 
 //	public Employee addEmployee(Employee employee) {

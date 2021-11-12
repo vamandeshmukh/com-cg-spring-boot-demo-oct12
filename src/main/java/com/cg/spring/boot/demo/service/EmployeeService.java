@@ -31,8 +31,9 @@ public class EmployeeService {
 		return empList.stream().filter(e -> eid == e.getEid()).findAny().orElse(null);
 	}
 
-//	public Employee addEmployee(Employee employee) {
-//		return employee;
-//	}
+	public Employee addEmployee(Employee employee) {
+		empList.add(employee);
+		return employee;
+	}
 
 }

@@ -26,11 +26,11 @@ public class EmployeeService {
 		return empList;
 	}
 
-//	public Employee getEmployeeById(int eid) {
-//
-//		return new Employee();
-//	}
-//
+	public Employee getEmployeeById(int eid) {
+		System.out.println("Service getEmployeeById");
+		return empList.stream().filter(e -> eid == e.getEid()).findAny().get();
+	}
+
 //	public Employee addEmployee(Employee employee) {
 //		return employee;
 //	}

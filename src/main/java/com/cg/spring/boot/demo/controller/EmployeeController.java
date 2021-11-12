@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.spring.boot.demo.model.Employee;
 import com.cg.spring.boot.demo.service.EmployeeService;
+
 //@Component
 @RestController
 public class EmployeeController {
@@ -22,10 +24,13 @@ public class EmployeeController {
 		return empService.getAllEmployees();
 	}
 
-//	public Employee getEmpById(int eid) {
-//		return null;
-//	}
-//
+	// http://localhost:8082/getempbyid/{eid}
+	@GetMapping("/getempbyid/{eid}")
+	public Employee getEmpById(@PathVariable(name = "eid") int eid) {
+		System.out.println("Controller getEmpById");
+		return empService.getEmployeeById(eid);
+	}
+
 //	public Employee addEmp(Employee employee) {
 //		return null;
 //	}

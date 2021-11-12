@@ -26,7 +26,7 @@ public class EmployeeController {
 		return empService.getAllEmployees();
 	}
 
-	// http://localhost:8082/getempbyid/{eid}
+	// http://localhost:8082/getempbyid/101
 	@GetMapping("/getempbyid/{eid}")
 	public Employee getEmpById(@PathVariable(name = "eid") int eid) {
 		System.out.println("Controller getEmpById");

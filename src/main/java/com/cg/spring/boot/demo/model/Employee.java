@@ -1,9 +1,21 @@
 package com.cg.spring.boot.demo.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "emp_table")
 public class Employee {
 
+	@Id
 	private int eid;
+
+	@Column
 	private String firstName;
+
+	@Column
 	private double salary;
 
 	public Employee() {

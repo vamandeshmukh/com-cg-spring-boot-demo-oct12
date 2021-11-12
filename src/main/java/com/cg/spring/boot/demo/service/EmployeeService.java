@@ -25,9 +25,30 @@ public class EmployeeService {
 	}
 
 	public Employee addEmployee(Employee employee) {
-		return empRepository.save(employee);
+		System.out.println("Service addEmployee");
+		if (!empRepository.existsById(employee.getEid()))
+			return empRepository.save(employee);
+		System.out.println(employee.getEid() + " already exists.");
+		return null;
 	}
 
+	public Employee updateEmployee(Employee employee) {
+		System.out.println("Service updateEmployee");
+		if (empRepository.existsById(employee.getEid()))
+			return empRepository.save(employee);
+		System.out.println(employee.getEid() + " does not exist.");
+		return null;
+	}
+
+	public int deleteEmployeeById(int eid) {
+		System.out.println("Service deleteEmployeeById");
+		if (empRepository.existsById(eid)) {
+			empRepository.deleteById(eid);
+			return eid;
+		}
+		System.out.println(eid + " does not exist.");
+		return 0;
+	}
 }
 
 ////@Component

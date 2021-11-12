@@ -3,6 +3,7 @@ package com.cg.spring.boot.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,6 +41,17 @@ public class EmployeeController {
 		return empService.addEmployee(employee);
 	}
 
+	@PostMapping("/updateemp")
+	public Employee updateEmp(@RequestBody Employee employee) {
+		System.out.println("Controller updateEmp");
+		return empService.updateEmployee(employee);
+	}
+
+	@DeleteMapping("/deleteempbyid/{eid}")
+	public int deleteEmpById(@PathVariable int eid) {
+		System.out.println("Controller deleteEmpById");
+		return empService.deleteEmployeeById(eid);
+	}
 }
 
 //@RestController

@@ -20,17 +20,16 @@ public class EmployeeService {
 
 	public List<Employee> getAllEmployees() {
 		System.out.println("Service getAllEmployees");
-		return empList;
+		return empRepository.findAll();
 	}
 
 	public Employee getEmployeeById(int eid) {
 		System.out.println("Service getEmployeeById");
-		return empList.stream().filter(e -> eid == e.getEid()).findAny().orElse(null);
+		return empRepository.findById(eid).get();
 	}
 
 	public Employee addEmployee(Employee employee) {
-		empList.add(employee);
-		return employee;
+		return empRepository.save(employee);
 	}
 
 }

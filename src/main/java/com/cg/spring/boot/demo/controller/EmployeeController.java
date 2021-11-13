@@ -2,6 +2,8 @@ package com.cg.spring.boot.demo.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,13 +20,18 @@ import com.cg.spring.boot.demo.service.EmployeeService;
 @RestController
 public class EmployeeController {
 
+	private static final Logger LOG = LoggerFactory.getLogger(EmployeeController.class);
+
 	@Autowired
 	private EmployeeService empService;
 
 	// http://localhost:8082/getallemps
 	@GetMapping("/getallemps")
 	public List<Employee> getAllEmps() {
-		System.out.println("Controller getAllEmps");
+		LOG.info("getAllEmps");
+		LOG.warn("getAllEmps"); // in normal or exception block
+		LOG.error("getAllEmps"); // in exception block
+//		LOG.debug("getAllEmps"); // in debug mode 
 		return empService.getAllEmployees();
 	}
 

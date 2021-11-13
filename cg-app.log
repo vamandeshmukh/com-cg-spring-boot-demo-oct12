@@ -91,3 +91,39 @@
 2021-11-13 11:24:03.219  INFO 3520 --- [restartedMain] c.c.s.b.d.ComCgSpringBootDemoApplication : Started ComCgSpringBootDemoApplication in 3.292 seconds (JVM running for 3155.556)
 2021-11-13 11:24:03.225  INFO 3520 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
 2021-11-13 11:24:03.225  INFO 3520 --- [restartedMain] c.c.s.b.d.ComCgSpringBootDemoApplication : End
+2021-11-13 11:25:19.906  INFO 3520 --- [http-nio-8082-exec-2] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-13 11:25:19.908  INFO 3520 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-13 11:25:19.910  INFO 3520 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-11-13 11:25:19.912  INFO 3520 --- [http-nio-8082-exec-2] c.c.s.b.d.controller.EmployeeController  : getAllEmps
+2021-11-13 11:25:19.912  WARN 3520 --- [http-nio-8082-exec-2] c.c.s.b.d.controller.EmployeeController  : getAllEmps
+2021-11-13 11:25:19.913 ERROR 3520 --- [http-nio-8082-exec-2] c.c.s.b.d.controller.EmployeeController  : getAllEmps
+2021-11-13 11:27:16.000  INFO 3520 --- [Thread-91] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-13 11:27:16.005  INFO 3520 --- [Thread-91] com.zaxxer.hikari.HikariDataSource       : HikariPool-23 - Shutdown initiated...
+2021-11-13 11:27:16.025  INFO 3520 --- [Thread-91] com.zaxxer.hikari.HikariDataSource       : HikariPool-23 - Shutdown completed.
+2021-11-13 11:27:16.304  INFO 3520 --- [restartedMain] c.c.s.b.d.ComCgSpringBootDemoApplication : Start
+2021-11-13 11:27:16.508  INFO 3520 --- [restartedMain] c.c.s.b.d.ComCgSpringBootDemoApplication : Starting ComCgSpringBootDemoApplication using Java 11.0.2 on DESKTOP-KFP7J4E with PID 3520 (C:\VamanCode\STS_WS\com-cg-spring-boot-demo-oct12\target\classes started by Vaman in C:\VamanCode\STS_WS\com-cg-spring-boot-demo-oct12)
+2021-11-13 11:27:16.509  INFO 3520 --- [restartedMain] c.c.s.b.d.ComCgSpringBootDemoApplication : No active profile set, falling back to default profiles: default
+2021-11-13 11:27:18.679  INFO 3520 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-13 11:27:18.728  INFO 3520 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 1 JPA repository interfaces.
+2021-11-13 11:27:19.941  INFO 3520 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2021-11-13 11:27:19.943  INFO 3520 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-13 11:27:19.944  INFO 3520 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-13 11:27:19.949  INFO 3520 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.24] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2021-11-13 11:27:19.949  INFO 3520 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
+2021-11-13 11:27:19.950  INFO 3520 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2021-11-13 11:27:19.950  INFO 3520 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-11-13 11:27:19.951  INFO 3520 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2021-11-13 11:27:20.135  INFO 3520 --- [restartedMain] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-11-13 11:27:20.135  INFO 3520 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3608 ms
+2021-11-13 11:27:27.311  INFO 3520 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-13 11:27:27.347  INFO 3520 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-24 - Starting...
+2021-11-13 11:27:27.764  INFO 3520 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-24 - Start completed.
+2021-11-13 11:27:27.765  INFO 3520 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-11-13 11:27:31.054  INFO 3520 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-13 11:27:31.055  INFO 3520 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-13 11:27:31.760  WARN 3520 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-13 11:27:33.868  INFO 3520 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-13 11:27:33.956  INFO 3520 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2021-11-13 11:27:34.472  INFO 3520 --- [restartedMain] c.c.s.b.d.ComCgSpringBootDemoApplication : Started ComCgSpringBootDemoApplication in 18.143 seconds (JVM running for 3366.809)
+2021-11-13 11:27:34.488  INFO 3520 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-13 11:27:34.489  INFO 3520 --- [restartedMain] c.c.s.b.d.ComCgSpringBootDemoApplication : End

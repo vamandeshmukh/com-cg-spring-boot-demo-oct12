@@ -28,7 +28,7 @@ public class EmployeeController {
 	// http://localhost:8082/getallemps
 	@GetMapping("/getallemps")
 	public List<Employee> getAllEmps() {
-		LOG.info("getAllEmps");
+		LOG.info("getAllEmps"); // in normal block
 		LOG.warn("getAllEmps"); // in normal or exception block
 		LOG.error("getAllEmps"); // in exception block
 //		LOG.debug("getAllEmps"); // in debug mode 

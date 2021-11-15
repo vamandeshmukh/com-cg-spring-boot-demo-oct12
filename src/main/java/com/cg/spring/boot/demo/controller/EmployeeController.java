@@ -67,8 +67,28 @@ public class EmployeeController {
 //			ResponseEntity<Employee> response = new ResponseEntity<Employee>(emp, headers, HttpStatus.OK);
 //	}
 
-	// returns responseentity object including employee object (body) and message
-	// (header)
+//	// returns responseentity object including employee object (body) and (header)
+//	// http://localhost:8082/getempbyid/101
+//	@GetMapping("/getempbyid/{eid}")
+//	public ResponseEntity<Employee> getEmpById(@PathVariable(name = "eid") int eid) {
+//		LOG.info("getEmpById");
+//		Employee emp = empService.getEmployeeById(eid);
+//		HttpHeaders headers = new HttpHeaders();
+//		ResponseEntity<Employee> response;
+//		if (null != emp) {
+//			headers.add("message", "This employee is available in the database.");
+//			LOG.info(headers.toString());
+//			response = new ResponseEntity<Employee>(emp, headers, HttpStatus.OK);
+//			return response;
+//		} else {
+//			headers.add("message", "This employee is NOT available in the database.");
+//			LOG.info(headers.toString());
+//			response = new ResponseEntity<Employee>(emp, headers, HttpStatus.NOT_FOUND);
+//			return response;
+//		}
+//	}
+
+	// returns responseentity object including employee object (body) and (header)
 	// http://localhost:8082/getempbyid/101
 	@GetMapping("/getempbyid/{eid}")
 	public ResponseEntity<Employee> getEmpById(@PathVariable(name = "eid") int eid) {
@@ -76,17 +96,10 @@ public class EmployeeController {
 		Employee emp = empService.getEmployeeById(eid);
 		HttpHeaders headers = new HttpHeaders();
 		ResponseEntity<Employee> response;
-		if (null != emp) {
-			headers.add("message", "This employee is available in the database.");
-			LOG.info(headers.toString());
-			response = new ResponseEntity<Employee>(emp, headers, HttpStatus.OK);
-			return response;
-		} else {
-			headers.add("message", "This employee is NOT available in the database.");
-			LOG.info(headers.toString());
-			response = new ResponseEntity<Employee>(emp, headers, HttpStatus.NOT_FOUND);
-			return response;
-		}
+		headers.add("message", "This employee is available in the database.");
+		LOG.info(headers.toString());
+		response = new ResponseEntity<Employee>(emp, headers, HttpStatus.OK);
+		return response;
 	}
 
 	// http://localhost:8082/addemp

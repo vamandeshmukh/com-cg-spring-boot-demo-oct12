@@ -3,6 +3,8 @@ package com.cg.spring.boot.demo.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,8 @@ import com.cg.spring.boot.demo.repository.EmployeeRepository;
 
 @Service
 public class EmployeeService {
+
+	private static final Logger LOG = LoggerFactory.getLogger(EmployeeService.class);
 
 	@Autowired
 	private EmployeeRepository empRepository;
@@ -27,11 +31,15 @@ public class EmployeeService {
 //	}
 
 	public Employee getEmployeeById(int eid) {
+		LOG.info("getEmployeeById");
 		Optional<Employee> empOpt = empRepository.findById(eid);
-		if (empOpt.isPresent())
+		if (empOpt.isPresent()) {
+			LOG.info("Employee is available.");
 			return empOpt.get();
-		else
+		} else {
+			LOG.info("Employee is NOT available.");
 			throw new EmployeeNotFoundException(eid + " this employee is not found.");
+		}
 	}
 
 	public Employee addEmployee(Employee employee) {

@@ -93,12 +93,11 @@ public class EmployeeController {
 	@GetMapping("/getempbyid/{eid}")
 	public ResponseEntity<Employee> getEmpById(@PathVariable(name = "eid") int eid) {
 		LOG.info("getEmpById");
-		Employee emp = empService.getEmployeeById(eid);
+		Employee emp = empService.getEmployeeById(eid); // line 
 		HttpHeaders headers = new HttpHeaders();
-		ResponseEntity<Employee> response;
 		headers.add("message", "This employee is available in the database.");
 		LOG.info(headers.toString());
-		response = new ResponseEntity<Employee>(emp, headers, HttpStatus.OK);
+		ResponseEntity<Employee> response = new ResponseEntity<Employee>(emp, headers, HttpStatus.OK);
 		return response;
 	}
 

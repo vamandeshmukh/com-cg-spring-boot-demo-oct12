@@ -17,6 +17,9 @@ public class SwaggerConfig {
 	private static final Logger LOG = LoggerFactory.getLogger(SwaggerConfig.class);
 
 	public Docket api() {
+//		char ch = ‘a’;
+//				char ch2 = 'a';
+
 		LOG.info("SwaggerConfig Docket api");
 		return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.any())
 				.paths(PathSelectors.any()).build();

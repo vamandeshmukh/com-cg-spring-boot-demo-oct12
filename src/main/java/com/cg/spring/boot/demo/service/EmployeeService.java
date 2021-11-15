@@ -58,14 +58,15 @@ public class EmployeeService {
 		return null;
 	}
 
-	public int deleteEmployeeById(int eid) {
-		System.out.println("Service deleteEmployeeById");
-		if (empRepository.existsById(eid)) {
+	public Employee deleteEmployeeById(int eid) {
+		LOG.info("deleteEmployeeById");
+		Optional<Employee> empOpt = empRepository.findById(eid);
+		if (empOpt.isPresent()) {
 			empRepository.deleteById(eid);
-			return eid;
+			return empOpt.get();
+		} else {
+			throw new EmployeeNotFoundException(eid + " this employee does not exist.");
 		}
-		System.out.println(eid + " does not exist.");
-		return 0;
 	}
 }
 

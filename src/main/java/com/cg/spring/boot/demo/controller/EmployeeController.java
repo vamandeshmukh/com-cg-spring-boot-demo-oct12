@@ -93,7 +93,7 @@ public class EmployeeController {
 	@GetMapping("/getempbyid/{eid}")
 	public ResponseEntity<Employee> getEmpById(@PathVariable(name = "eid") int eid) {
 		LOG.info("getEmpById");
-		Employee emp = empService.getEmployeeById(eid); // line 
+		Employee emp = empService.getEmployeeById(eid); // line
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("message", "This employee is available in the database.");
 		LOG.info(headers.toString());
@@ -116,9 +116,13 @@ public class EmployeeController {
 	}
 
 	@DeleteMapping("/deleteempbyid/{eid}")
-	public int deleteEmpById(@PathVariable int eid) {
-		System.out.println("Controller deleteEmpById");
-		return empService.deleteEmployeeById(eid);
+	public ResponseEntity<Employee> deleteEmpById(@PathVariable int eid) {
+		LOG.info("deleteEmpById");
+		Employee emp = empService.deleteEmployeeById(eid);
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("message", "Employee deleted successfully.");
+		ResponseEntity<Employee> response = new ResponseEntity<Employee>(emp, headers, HttpStatus.OK);
+		return response;
 	}
 }
 

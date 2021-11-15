@@ -1,6 +1,8 @@
 package com.cg.spring.boot.demo.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,9 +21,16 @@ public class EmployeeService {
 		return empRepository.findAll();
 	}
 
+//	public Employee getEmployeeById(int eid) {
+//		Log.info("getEmployeeById");
+//		return empRepository.findById(eid).get();
+//	}
+
 	public Employee getEmployeeById(int eid) {
-		System.out.println("Service getEmployeeById");
-		return empRepository.findById(eid).get();
+		Optional<Employee> empOpt = empRepository.findById(eid);
+		if (!empOpt.isEmpty())
+			return empOpt.get();
+		return null;
 	}
 
 	public Employee addEmployee(Employee employee) {

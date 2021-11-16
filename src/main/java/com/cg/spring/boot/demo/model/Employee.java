@@ -6,18 +6,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 @Entity
-@Table(name = "emp_table2")
+@Table(name = "emp_table")
 public class Employee {
 
 	@Id // primary key
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int eid;
+	private int eid; // blahblahblah
 
 	@Column
-//	@Size(min = 3, max = 16, message = "firstName should be between %min and %max characters.")
 	private String firstName;
 
 	@Column

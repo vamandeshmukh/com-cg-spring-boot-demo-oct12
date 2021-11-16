@@ -53,6 +53,7 @@ public class EmployeeService {
 	public Employee updateEmployee(Employee employee) {
 		System.out.println("Service updateEmployee");
 		if (empRepository.existsById(employee.getEid()))
+
 			return empRepository.save(employee);
 		System.out.println(employee.getEid() + " does not exist.");
 		return null;
@@ -67,6 +68,16 @@ public class EmployeeService {
 		} else {
 			throw new EmployeeNotFoundException(eid + " this employee does not exist.");
 		}
+	}
+
+	public List<Employee> getEmployeeByFirstName(String firstName) {
+		LOG.info("getEmployeeByFirstName");
+		return empRepository.findByFirstName(firstName);
+	}
+
+	public List<Employee> getEmployeeBySalaryInBetween(double salary1, ) {
+		LOG.info("getEmployeeByFirstName");
+		return empRepository.findByFirstName(firstName);
 	}
 }
 

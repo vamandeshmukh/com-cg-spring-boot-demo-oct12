@@ -125,6 +125,13 @@ public class EmployeeController {
 		ResponseEntity<Employee> response = new ResponseEntity<Employee>(emp, headers, HttpStatus.OK);
 		return response;
 	}
+
+	@GetMapping("/getbyname/{firstName}")
+	public List<Employee> getEmpByFirstName(@PathVariable String firstName) {
+		LOG.info("getEmpByFirstName");
+		return empService.getEmployeeByFirstName(firstName);
+	}
+
 }
 
 //@RestController

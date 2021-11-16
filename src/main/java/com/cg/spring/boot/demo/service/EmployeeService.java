@@ -75,9 +75,9 @@ public class EmployeeService {
 		return empRepository.findByFirstName(firstName);
 	}
 
-	public List<Employee> getEmployeeBySalaryInBetween(double salary1, ) {
-		LOG.info("getEmployeeByFirstName");
-		return empRepository.findByFirstName(firstName);
+	public List<Employee> getEmployeeBySalaryInBetween(double salary1, double salary2) {
+		LOG.info("getEmployeeBySalaryInBetween");
+		return empRepository.findBySalaryBetween(salary1, salary2);
 	}
 }
 

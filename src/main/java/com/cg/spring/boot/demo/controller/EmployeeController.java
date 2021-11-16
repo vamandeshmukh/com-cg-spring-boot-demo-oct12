@@ -132,6 +132,12 @@ public class EmployeeController {
 		return empService.getEmployeeByFirstName(firstName);
 	}
 
+	@GetMapping("/getbysalbet/{salary1}/{salary1}")
+	public List<Employee> getEmpBySalaryInBetween(double salary1, double salary2) {
+		LOG.info("getEmployeeBySalaryInBetween");
+		return empService.getEmployeeBySalaryInBetween(salary1, salary2);
+	}
+
 }
 
 //@RestController

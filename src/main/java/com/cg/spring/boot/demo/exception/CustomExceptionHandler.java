@@ -21,7 +21,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 		headers.add("message", "This employee is NOT available in the database.");
 		return new ResponseEntity<Object>(null, headers, HttpStatus.NOT_FOUND);
 	}
-
+ 
 	@ExceptionHandler(DepartmentNotFoundException.class)
 	public ResponseEntity<Object> handleDepartmentNotFoundException() {
 		LOG.error("handleEmployeeNotFoundException");

@@ -94,6 +94,7 @@ public class EmployeeController {
 	public ResponseEntity<Employee> getEmpById(@PathVariable(name = "eid") int eid) {
 		LOG.info("getEmpById");
 		Employee emp = empService.getEmployeeById(eid); // line
+		LOG.info(emp.toString());
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("message", "This employee is available in the database.");
 		LOG.info(headers.toString());

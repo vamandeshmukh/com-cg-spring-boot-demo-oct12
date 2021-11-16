@@ -19,11 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.spring.boot.demo.model.Employee;
 import com.cg.spring.boot.demo.service.EmployeeService;
 
-/**
- * 
- * @author Vaman Deshmukh 
- *
- */
+// This is a comment. 
 
 //@Component
 @RestController

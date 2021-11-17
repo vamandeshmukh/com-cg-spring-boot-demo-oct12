@@ -13,6 +13,9 @@ import com.cg.spring.boot.demo.repository.AppUserRepository;
 @Service
 public class AppUserService {
 
+	// please check the logic 
+	
+	
 	private static final Logger LOG = LoggerFactory.getLogger(AppUserService.class);
 
 	@Autowired

@@ -13,9 +13,11 @@ import com.cg.spring.boot.demo.repository.AppUserRepository;
 @Service
 public class AppUserService {
 
-	// please check the logic 
-	
-	
+	// use this field to give access to different controller APIs 
+	public boolean isLoggedIn;
+
+	private AppUser tempUser;
+
 	private static final Logger LOG = LoggerFactory.getLogger(AppUserService.class);
 
 	@Autowired
@@ -31,9 +33,20 @@ public class AppUserService {
 
 	public AppUser login(AppUser appUser) {
 		LOG.info("login");
-		if (appUserRepository.findByUserName(appUser.getUserName()).getUserName()
-				.equalsIgnoreCase(appUser.getUserName()))
-			return appUserRepository.save(appUser);
+		tempUser = appUserRepository.findByUserName(appUser.getUserName());
+		if (tempUser.getUserName().equalsIgnoreCase(appUser.getUserName())) {
+			isLoggedIn = true;
+			return tempUser;
+		}
+		throw new AppUserNotFoundException();
+	}
+
+	public String logout(String userName) {
+		LOG.info("logout");
+		if (isLoggedIn) {
+			isLoggedIn = false;
+			return "User logged out successfully.";
+		}
 		throw new AppUserNotFoundException();
 	}
 }

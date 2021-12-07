@@ -13,32 +13,35 @@ import com.cg.spring.boot.demo.repository.AppUserRepository;
 @Service
 public class AppUserService {
 
-	// use this field to give access to different controller APIs 
+	// use this field to give access to different controller APIs
 	public boolean isLoggedIn;
 
 	private AppUser tempUser;
 
-	private static final Logger LOG = LoggerFactory.getLogger(AppUserService.class);
+	private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	AppUserRepository appUserRepository;
 
 	public AppUser register(AppUser appUser) {
 		LOG.info("register");
-		if (appUserRepository.findByUserName(appUser.getUserName()).getUserName()
-				.equalsIgnoreCase(appUser.getUserName()))
-			throw new AppUserAlreadyExistsException();
-		return appUserRepository.save(appUser);
+		if (null == appUserRepository.findByUserName(appUser.getUserName()))
+			return appUserRepository.save(appUser);
+		throw new AppUserAlreadyExistsException();
 	}
 
 	public AppUser login(AppUser appUser) {
 		LOG.info("login");
 		tempUser = appUserRepository.findByUserName(appUser.getUserName());
-		if (tempUser.getUserName().equalsIgnoreCase(appUser.getUserName())) {
-			isLoggedIn = true;
-			return tempUser;
+		if (null != tempUser) {
+			if (appUser.equals(tempUser)) {
+				isLoggedIn = true;
+				LOG.info("login successful");
+				return tempUser;
+			}
 		}
 		throw new AppUserNotFoundException();
+
 	}
 
 	public String logout(String userName) {

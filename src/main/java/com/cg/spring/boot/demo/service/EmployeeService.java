@@ -44,10 +44,12 @@ public class EmployeeService {
 
 	public Employee addEmployee(Employee employee) {
 		LOG.info("Service addEmployee");
-		if (depRepository.existsById(employee.getDepartment().getDid()))
-			return empRepository.save(employee);
-		else
-			throw new DepartmentNotFoundException(employee.getDepartment().getDid() + " this department is not found.");
+//		if (depRepository.existsById(employee.getDepartment().getDid()))
+//		if (empRepository.existsById(employee.getEid()))
+
+		return empRepository.save(employee);
+//		else
+//			throw new DepartmentNotFoundException(employee.getDepartment().getDid() + " this department is not found.");
 	}
 
 	public Employee updateEmployee(Employee employee) {

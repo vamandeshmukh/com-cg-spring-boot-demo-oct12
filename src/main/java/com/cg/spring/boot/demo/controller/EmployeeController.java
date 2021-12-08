@@ -34,12 +34,10 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService empService;
 
-	// http://localhost:8082/getallemps
+	// http://localhost:8082/emp/getallemps
 	@GetMapping("/getallemps")
 	public List<Employee> getAllEmps() {
 		LOG.info("getAllEmps"); // in normal block
-		LOG.warn("getAllEmps"); // in normal or exception block
-		LOG.error("getAllEmps"); // in exception block
 //		LOG.debug("getAllEmps"); // in debug mode 
 		return empService.getAllEmployees();
 	}
@@ -95,7 +93,7 @@ public class EmployeeController {
 //	}
 
 	// returns responseentity object including employee object (body) and (header)
-	// http://localhost:8082/getempbyid/101
+	// http://localhost:8082/emp/getempbyid/101
 	@GetMapping("/getempbyid/{eid}")
 	public ResponseEntity<Employee> getEmpById(@PathVariable(name = "eid") int eid) {
 		LOG.info("getEmpById");
@@ -108,10 +106,10 @@ public class EmployeeController {
 		return response;
 	}
 
-	// http://localhost:8082/addemp
+	// http://localhost:8082/emp/addemp
 	@PostMapping("/addemp")
 	public ResponseEntity<Employee> addEmp(@RequestBody Employee employee) {
-		System.out.println("Controller addEmp");
+		LOG.info(employee.toString());
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("message", "Employee added successfully.");
 		return new ResponseEntity<Employee>(empService.addEmployee(employee), headers, HttpStatus.CREATED);

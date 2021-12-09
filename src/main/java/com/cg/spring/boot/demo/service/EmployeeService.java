@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.spring.boot.demo.exception.DepartmentNotFoundException;
+import com.cg.spring.boot.demo.exception.EmployeeAlreadyExistsException;
 import com.cg.spring.boot.demo.exception.EmployeeNotFoundException;
 import com.cg.spring.boot.demo.model.Employee;
 import com.cg.spring.boot.demo.repository.DepartmentRepository;
@@ -44,21 +45,23 @@ public class EmployeeService {
 
 	public Employee addEmployee(Employee employee) {
 		LOG.info("Service addEmployee");
-//		if (depRepository.existsById(employee.getDepartment().getDid()))
-//		if (empRepository.existsById(employee.getEid()))
-
-		return empRepository.save(employee);
-//		else
-//			throw new DepartmentNotFoundException(employee.getDepartment().getDid() + " this department is not found.");
+		if (!empRepository.existsById(employee.getEid())) {
+			if (employee.getDepartment() != null)
+				return empRepository.save(employee);
+			else if (depRepository.existsById(employee.getDepartment().getDid()))
+				return empRepository.save(employee);
+			else
+				throw new DepartmentNotFoundException(
+						"Deparement with did " + employee.getDepartment().getDid() + " does not exist.");
+		} else
+			throw new EmployeeAlreadyExistsException("Employee with eid " + employee.getEid() + " already exists.");
 	}
 
 	public Employee updateEmployee(Employee employee) {
 		System.out.println("Service updateEmployee");
 		if (empRepository.existsById(employee.getEid()))
-
 			return empRepository.save(employee);
-		System.out.println(employee.getEid() + " does not exist.");
-		return null;
+		throw new EmployeeNotFoundException("Employee with eid " + employee.getEid() + " does not exist.");
 	}
 
 	public Employee deleteEmployeeById(int eid) {

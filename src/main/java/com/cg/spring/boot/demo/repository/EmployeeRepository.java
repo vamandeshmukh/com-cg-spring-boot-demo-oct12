@@ -31,5 +31,9 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 	public abstract List<Employee> findBySalaryBetween(double salary1, double salary2);
 
 //	public abstract List<Employee> findBySalaryBetween(double salary1, double salary2);
+	
+	public abstract List<Employee> findByDepartment_did(int did);
+//	public abstract List<Employee> findByDepartmentDid(int did);
+	
 
 }

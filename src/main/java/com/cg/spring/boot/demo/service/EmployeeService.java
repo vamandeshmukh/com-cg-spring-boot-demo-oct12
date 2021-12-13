@@ -84,6 +84,12 @@ public class EmployeeService {
 		LOG.info("getEmployeeBySalaryInBetween");
 		return empRepository.findBySalaryBetween(salary1, salary2);
 	}
+
+	public List<Employee> getEmployeeByDepartmentId(int did) {
+		LOG.info("getEmployeeByDepartmentId");
+		return empRepository.findByDepartment_did(did);
+	}
+
 }
 
 ////@Component

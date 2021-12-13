@@ -144,6 +144,12 @@ public class EmployeeController {
 		return empService.getEmployeeBySalaryInBetween(salary1, salary2);
 	}
 
+	@GetMapping("/getbydep/{did}")
+	public List<Employee> getEmpByDep(@PathVariable int did) {
+		LOG.info("getEmployeeByDep" + did);
+		return empService.getEmployeeByDepartmentId(did);
+	}
+
 }
 
 //@RestController
